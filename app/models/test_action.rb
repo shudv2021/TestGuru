@@ -1,0 +1,2 @@
+class TestAction < ApplicationRecord
+end
