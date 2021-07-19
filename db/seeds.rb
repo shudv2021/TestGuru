@@ -11,15 +11,15 @@ Category.create([
   {title:'Backend'},
   {title:'Mobile devops'},
   {title:'Data science'}
-])
+  ])
 
 Test.create([
-   {title:'Ruby', level:1, category_id:2},
-   {title:'Ruby', level:2, category_id:2},
-   {title:'HTML', level:0, category_id:1},
-   {title:'SCC', level:1, category_id:1},
-   {title:'Go', level:2, category_id:3},
-   {title:'Phyton', level:2, category_id:4}
+  {title:'Ruby', level:1, category_id:2},
+  {title:'Ruby', level:2, category_id:2},
+  {title:'HTML', level:0, category_id:1},
+  {title:'SCC', level:1, category_id:1},
+  {title:'Go', level:2, category_id:3},
+  {title:'Phyton', level:2, category_id:4}
   ])
 Question.create([
   {test_id:1, body:'For what Ruby is used usually'},
@@ -35,19 +35,19 @@ Answer.create([
  {question_id:2, body:'For Frontend production', correct:true},
  {question_id:5, body:'Both lenguage with dynamic typing jf data', correct:true},
  {question_id:4, body:'For drawing and decoration HTML pages', correct:true},
-             ])
+ ])
 User.create([
   {name:'Masha', password:'12345', status:'test object'},
   {name:'Glasha', password:'12345', status:'test object'},
   {name:'Pasha', password:'12345', status:'test object'},
   {name:'Veniamin', password:'qwerty', status:'test maker'}
-            ])
+  ])
 TestAction.create([
-                    {test_id:1, user_id:1, result:2},
-                    {test_id:2, user_id:1, result:2},
-                    {test_id:4, user_id:1, result:2},
-                    {test_id:1, user_id:2, result:1},
-                    {test_id:2, user_id:2, result:1},
-                    {test_id:3, user_id:2, result:1},
-                    {test_id:4, user_id:3, result:1}
-                  ])
+  {test_id:1, user_id:1, result:2},
+  {test_id:2, user_id:1, result:2},
+  {test_id:4, user_id:1, result:2},
+  {test_id:1, user_id:2, result:1},
+  {test_id:2, user_id:2, result:1},
+  {test_id:3, user_id:2, result:1},
+  {test_id:4, user_id:3, result:1}
+  ])
