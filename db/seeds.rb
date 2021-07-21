@@ -42,12 +42,12 @@ users = User.create([
   {name:'Pasha', password:'12345', status:'test object'},
   {name:'Veniamin', password:'qwerty', status:'test maker'}
   ])
-TestAction.create([
-  {test_id:tests[0].id, user_id:users[0].id, result:2},
-  {test_id:tests[1].id, user_id:users[0].id, result:2},
-  {test_id:tests[3].id, user_id:users[0].id, result:2},
-  {test_id:tests[0].id, user_id:users[1].id, result:1},
-  {test_id:tests[1].id, user_id:users[1].id, result:1},
-  {test_id:tests[2].id, user_id:users[1].id, result:1},
-  {test_id:tests[3].id, user_id:users[2].id, result:1}
+TestsUser.create([
+  {test_id:tests[0].id, user_id:users[0].id, progress:2},
+  {test_id:tests[1].id, user_id:users[0].id, progress:2},
+  {test_id:tests[3].id, user_id:users[0].id, progress:2},
+  {test_id:tests[0].id, user_id:users[1].id, progress:1},
+  {test_id:tests[1].id, user_id:users[1].id, progress:1},
+  {test_id:tests[2].id, user_id:users[1].id, progress:1},
+  {test_id:tests[3].id, user_id:users[2].id, progress:1}
   ])

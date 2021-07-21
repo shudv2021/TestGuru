@@ -4,4 +4,9 @@ class Test < ApplicationRecord
            .where("categories.title = :category", category:category)
            .order('tests.id DESC')
   end
+  has_many :questions
+  belongs_to :category
+  #has_and_belongs_to_many :users
+  has_many :tests_users
+  has_many :users, through: :tests_users
 end
