@@ -43,11 +43,11 @@ Answer.create([
  ])
 
 TestsUser.create([
-  {test_id:tests[0].id, user_id:users[0].id, progress:2},
-  {test_id:tests[1].id, user_id:users[0].id, progress:2},
-  {test_id:tests[3].id, user_id:users[0].id, progress:2},
-  {test_id:tests[0].id, user_id:users[1].id, progress:1},
-  {test_id:tests[1].id, user_id:users[1].id, progress:1},
-  {test_id:tests[2].id, user_id:users[1].id, progress:1},
-  {test_id:tests[3].id, user_id:users[2].id, progress:1}
+  {test_id:tests[0].id, user_id:users[0].id},
+  {test_id:tests[1].id, user_id:users[0].id},
+  {test_id:tests[3].id, user_id:users[0].id},
+  {test_id:tests[0].id, user_id:users[1].id},
+  {test_id:tests[1].id, user_id:users[1].id},
+  {test_id:tests[2].id, user_id:users[1].id},
+  {test_id:tests[3].id, user_id:users[2].id}
   ])
