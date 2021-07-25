@@ -4,7 +4,7 @@ class User < ApplicationRecord
               .where('test_actions.user_id = :id AND tests.level = :level', level:level, id:self.id)
   end
 
-  has_many :which_made, class_name: "Test"
+  has_many :authors_test, class_name: "Test"
   has_many :tests_users
   has_many :tests, through: :tests_users
 end
