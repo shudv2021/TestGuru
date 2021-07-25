@@ -12,14 +12,19 @@ categories = Category.create([
   {title:'Mobile devops'},
   {title:'Data science'}
   ])
-
+users = User.create([
+  {name:'Masha', password:'12345', status:'test object'},
+  {name:'Glasha', password:'12345', status:'test object'},
+  {name:'Pasha', password:'12345', status:'test object'},
+  {name:'Veniamin', password:'qwerty', status:'test maker'}
+                    ])
 tests = Test.create([
-  {title:'Ruby', level:1, category_id:categories[1].id},
-  {title:'Ruby', level:2, category_id:categories[1].id},
-  {title:'HTML', level:0, category_id:categories[0].id},
-  {title:'SCC', level:1, category_id:categories[0].id},
-  {title:'Go', level:2, category_id:categories[2].id},
-  {title:'Phyton', level:2, category_id:categories[3].id}
+  {title:'Ruby', level:1, category_id:categories[1].id, user_id:users[3].id},
+  {title:'Ruby', level:2, category_id:categories[1].id, user_id:users[3].id},
+  {title:'HTML', level:0, category_id:categories[0].id, user_id:users[3].id},
+  {title:'SCC', level:1, category_id:categories[0].id, user_id:users[3].id},
+  {title:'Go', level:2, category_id:categories[2].id, user_id:users[3].id},
+  {title:'Phyton', level:2, category_id:categories[3].id, user_id:users[3].id}
   ])
 questions = Question.create([
   {test_id:tests[0].id, body:'For what Ruby is used usually'},
@@ -36,18 +41,13 @@ Answer.create([
  {question_id:questions[4].id, body:'Both lenguage with dynamic typing jf data', correct:true},
  {question_id:questions[3].id, body:'For drawing and decoration HTML pages', correct:true},
  ])
-users = User.create([
-  {name:'Masha', password:'12345', status:'test object'},
-  {name:'Glasha', password:'12345', status:'test object'},
-  {name:'Pasha', password:'12345', status:'test object'},
-  {name:'Veniamin', password:'qwerty', status:'test maker'}
-  ])
-TestAction.create([
-  {test_id:tests[0].id, user_id:users[0].id, result:2},
-  {test_id:tests[1].id, user_id:users[0].id, result:2},
-  {test_id:tests[3].id, user_id:users[0].id, result:2},
-  {test_id:tests[0].id, user_id:users[1].id, result:1},
-  {test_id:tests[1].id, user_id:users[1].id, result:1},
-  {test_id:tests[2].id, user_id:users[1].id, result:1},
-  {test_id:tests[3].id, user_id:users[2].id, result:1}
+
+TestsUser.create([
+  {test_id:tests[0].id, user_id:users[0].id},
+  {test_id:tests[1].id, user_id:users[0].id},
+  {test_id:tests[3].id, user_id:users[0].id},
+  {test_id:tests[0].id, user_id:users[1].id},
+  {test_id:tests[1].id, user_id:users[1].id},
+  {test_id:tests[2].id, user_id:users[1].id},
+  {test_id:tests[3].id, user_id:users[2].id}
   ])
