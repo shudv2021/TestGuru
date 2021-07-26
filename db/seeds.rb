@@ -24,7 +24,8 @@ tests = Test.create([
   {title:'HTML', level:0, category_id:categories[0].id, user_id:users[3].id},
   {title:'SCC', level:1, category_id:categories[0].id, user_id:users[3].id},
   {title:'Go', level:2, category_id:categories[2].id, user_id:users[3].id},
-  {title:'Phyton', level:2, category_id:categories[3].id, user_id:users[3].id}
+  {title:'Phyton', level:2, category_id:categories[3].id, user_id:users[3].id},
+  {title:'Ruby on Rails', level:5, category_id:categories[1].id, user_id:users[3].id}
   ])
 questions = Question.create([
   {test_id:tests[0].id, body:'For what Ruby is used usually'},
