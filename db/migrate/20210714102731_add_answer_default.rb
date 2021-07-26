@@ -6,5 +6,4 @@ class AddAnswerDefault < ActiveRecord::Migration[6.1]
   def down
     change_column_default(:answers, :correct, nil)
   end
-
 end
