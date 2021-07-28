@@ -1,12 +1,22 @@
 class Test < ApplicationRecord
-  def self.by_category(category)
-    pp Test.joins('JOIN categories ON tests.category_id = categories.id')
-           .where("categories.title = :category", category:category)
-           .order('tests.id DESC')
-  end
+
   has_many :questions
   belongs_to :category
-  belongs_to :author, class_name: "User", foreign_key: 'user_id'
+  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
   has_many :tests_users
   has_many :users, through: :tests_users
+
+  validates :title, presence: true
+  validates :title, uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true, greater_than: -1 }
+
+  scope :easy, -> { where(level: 0..1) }
+  scope :midle, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
+  scope :by_category, -> (category) { joins(:category)
+                          .where('categories.title = ?', category) }
+
+  def self.by_category_sort
+    by_category.order(id: :desc).pluck(:title)
+  end
 end
