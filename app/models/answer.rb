@@ -9,10 +9,6 @@ class Answer < ApplicationRecord
   private
 
   def too_many_answers
-    errors.add(:question_id, 'To many answers for this question') if total_answers >= 4
-  end
-
-  def total_answers
-    Answer.where('question_id = ?', question_id).size
+    errors.add(:question_id, 'To many answers for this question') if question.answers.size >= 4
   end
 end

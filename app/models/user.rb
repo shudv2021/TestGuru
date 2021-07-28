@@ -1,7 +1,10 @@
 class User < ApplicationRecord
   def all_tests_by_level(level)
-    Test.joins('JOIN tests_users ON tests_users.test_id = tests.id')
-        .where('tests_users.user_id = :id AND tests.level = :level', level: level, id: id)
+    tests.where('tests.level=?', level)
+  end
+
+  def all_tests
+    user.tests
   end
 
   has_many :authors_test, class_name: 'Test'
