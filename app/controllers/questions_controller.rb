@@ -5,13 +5,17 @@ class QuestionsController < ApplicationController
   #/tests/1/questions?dats[][level]=1&dats[][level]=2
   before_action :find_question, only: %i[show]
   before_action :find_test, only: %i[index]
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+
 
   def index
     #tests/:test_id/questions
-    @test.questions.each do |question|
-      question = "<p>#{question.body}</p>"
-      render html: question.html_safe
-    end
+    # @test.questions.each do |question|
+    #question = "<p>#{question.body}</p>"
+    #  render html: question.html_safe
+    #end
+    questions = @test.questions.map { |question| "<p>#{question.body}</p>"}
+    render html: questions.join.html_safe
   end
 
   def show
@@ -22,6 +26,14 @@ class QuestionsController < ApplicationController
   def new
   end
 
+  def create
+    #parametrs
+    Question.create(test_id: params[:test_id].to_i, body: params[:question][:body])
+  end
+
+  def destroy
+    @question.delete
+  end
 
   private
   def find_question
@@ -38,4 +50,7 @@ class QuestionsController < ApplicationController
     @test = Test.find(params[:test_id])
   end
 
+  def rescue_with_question_not_found
+    render html: "<p>Question not found </p>"
+  end
 end
