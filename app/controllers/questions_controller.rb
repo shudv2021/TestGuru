@@ -3,8 +3,8 @@ class QuestionsController < ApplicationController
   # /tests/1/questions?data[level]=2&data[lang]=ru
   # /tests/1/questions?tegs[]=ruby&tegs[]=computer since
   #/tests/1/questions?dats[][level]=1&dats[][level]=2
-  before_action :find_question, only: %i[show]
-  before_action :find_test, only: %i[index]
+  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[index create]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
 
@@ -27,12 +27,20 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    #parametrs
-    Question.create(test_id: params[:test_id].to_i, body: params[:question][:body])
+    question = @test.questions.new(question_params)
+    if question.save
+      render html: "<p>Question saved</p>".html_safe
+    else
+      render html: "<p>Saving failed</p>".html_safe
+    end
   end
 
   def destroy
-    @question.delete
+    if @question.delete
+      render html: "<p>Question del</p>".html_safe
+    else
+      render html: "<p>Can't del question</p>".html_safe
+    end
   end
 
   private
@@ -51,6 +59,10 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render html: "<p>Question not found </p>"
+    render html: "<p>Question not found </p>".html_safe
+  end
+
+  def question_params
+    params.require(:question).permit(:body)
   end
 end
