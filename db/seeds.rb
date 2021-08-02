@@ -13,10 +13,10 @@ categories = Category.create([
                                { title: 'Data science' }
                              ])
 users = User.create([
-                      { name: 'Masha', password: '12345', status: 'test object' },
-                      { name: 'Glasha', password: '12345', status: 'test object' },
-                      { name: 'Pasha', password: '12345', status: 'test object' },
-                      { name: 'Veniamin', password: 'qwerty', status: 'test maker' }
+                      { name: 'Masha', password: '12345', status: 'test object', email: 'mail@yandex' },
+                      { name: 'Glasha', password: '12345', status: 'test object', email: 'mail@yandex'  },
+                      { name: 'Pasha', password: '12345', status: 'test object', email: 'mail@yandex' },
+                      { name: 'Veniamin', password: 'qwerty', status: 'test maker', email: 'mail@yandex' }
                     ])
 tests = Test.create([
                       { title: 'Ruby', level: 1, category_id: categories[1].id, user_id: users[3].id },

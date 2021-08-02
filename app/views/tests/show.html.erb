@@ -1,0 +1,6 @@
+<h1>The test by <%= @test.title %> level: <%=@test.level %>.</h1>
+<ol>
+  <%@test.questions.each do |question| %>
+    <li><%=question.body %></li>
+  <%end %>
+</ol>

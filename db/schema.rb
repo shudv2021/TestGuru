@@ -10,70 +10,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_726_060_551) do
-  create_table 'answers', force: :cascade do |t|
-    t.integer 'question_id', null: false
-    t.string 'body', null: false
-    t.boolean 'correct', default: true, null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['question_id'], name: 'index_answers_on_question_id'
+ActiveRecord::Schema.define(version: 2021_08_02_031931) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.string "body", null: false
+    t.boolean "correct", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table 'categories', force: :cascade do |t|
-    t.string 'title', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "categories", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'questions', force: :cascade do |t|
-    t.integer 'test_id', null: false
-    t.string 'body', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['test_id'], name: 'index_questions_on_test_id'
+  create_table "questions", force: :cascade do |t|
+    t.integer "test_id", null: false
+    t.string "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
-  create_table 'test_actions', force: :cascade do |t|
-    t.integer 'test_id', null: false
-    t.integer 'user_id', null: false
-    t.integer 'result', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['test_id'], name: 'index_test_actions_on_test_id'
-    t.index ['user_id'], name: 'index_test_actions_on_user_id'
+  create_table "test_actions", force: :cascade do |t|
+    t.integer "test_id", null: false
+    t.integer "user_id", null: false
+    t.integer "result", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_id"], name: "index_test_actions_on_test_id"
+    t.index ["user_id"], name: "index_test_actions_on_user_id"
   end
 
-  create_table 'tests', force: :cascade do |t|
-    t.string 'title', null: false
-    t.integer 'level', default: 0, null: false
-    t.integer 'category_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'user_id'
-    t.index ['category_id'], name: 'index_tests_on_category_id'
-    t.index ['user_id'], name: 'index_tests_on_user_id'
+  create_table "tests", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "level", default: 0, null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", default: 4
+    t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
-  create_table 'tests_users', id: false, force: :cascade do |t|
-    t.integer 'user_id', null: false
-    t.integer 'test_id', null: false
-    t.index %w[user_id test_id], name: 'index_tests_users_on_user_id_and_test_id', unique: true
+  create_table "tests_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "test_id", null: false
+    t.index ["user_id", "test_id"], name: "index_tests_users_on_user_id_and_test_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'name', null: false
-    t.string 'password', null: false
-    t.string 'status', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'email'
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "password", null: false
+    t.string "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
   end
 
-  add_foreign_key 'answers', 'questions'
-  add_foreign_key 'questions', 'tests'
-  add_foreign_key 'test_actions', 'tests'
-  add_foreign_key 'test_actions', 'users'
-  add_foreign_key 'tests', 'categories'
-  add_foreign_key 'tests', 'users'
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "tests"
+  add_foreign_key "test_actions", "tests"
+  add_foreign_key "test_actions", "users"
+  add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "users"
 end
