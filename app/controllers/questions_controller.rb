@@ -7,19 +7,12 @@ class QuestionsController < ApplicationController
   before_action :find_test, only: %i[index create]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-
   def index
-    #tests/:test_id/questions
-    # @test.questions.each do |question|
-    #question = "<p>#{question.body}</p>"
-    #  render html: question.html_safe
-    #end
     questions = @test.questions.map { |question| "<p>#{question.body}</p>"}
     render html: questions.join.html_safe
   end
 
   def show
-    #questions/id
     render html: "<p>#{@question.body}</p>".html_safe
   end
 
@@ -29,7 +22,7 @@ class QuestionsController < ApplicationController
   def create
     question = @test.questions.new(question_params)
     if question.save
-      render html: "<p>Question saved</p>".html_safe
+      redirect_to(@test)
     else
       render html: "<p>Saving failed</p>".html_safe
     end
@@ -37,7 +30,8 @@ class QuestionsController < ApplicationController
 
   def destroy
     if @question.delete
-      render html: "<p>Question del</p>".html_safe
+      #Не работает перенаправление. Я удалил вопрос, но с переменной @test я ничего не делал?????
+      redirect_to(@test)
     else
       render html: "<p>Can't del question</p>".html_safe
     end
