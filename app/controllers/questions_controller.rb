@@ -4,34 +4,43 @@ class QuestionsController < ApplicationController
   # /tests/1/questions?tegs[]=ruby&tegs[]=computer since
   #/tests/1/questions?dats[][level]=1&dats[][level]=2
   before_action :find_question, only: %i[show destroy]
-  before_action :find_test, only: %i[index create]
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
-  def index
-    questions = @test.questions.map { |question| "<p>#{question.body}</p>"}
-    render html: questions.join.html_safe
-  end
+  before_action :find_test, only: %i[index new create]
+  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def show
-    render html: "<p>#{@question.body}</p>".html_safe
+    @question=Question.find(params[:id])
   end
 
   def new
+    @question = @test.questions.new
   end
 
   def create
-    question = @test.questions.new(question_params)
-    if question.save
-      redirect_to(@test)
+    @question = @test.questions.new(question_params)
+    if @question.save
+      redirect_to(@question.test)
     else
       render html: "<p>Saving failed</p>".html_safe
     end
   end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to @question.test
+    else
+      render :new
+    end
+  end
+
   def destroy
+
     if @question.delete
-      #Не работает перенаправление. Я удалил вопрос, но с переменной @test я ничего не делал?????
-      redirect_to(@test)
+      redirect_to(@question.test)
     else
       render html: "<p>Can't del question</p>".html_safe
     end
@@ -40,6 +49,10 @@ class QuestionsController < ApplicationController
   private
   def find_question
     @question = Question.find(params[:id])
+  end
+
+  def question_params
+    params.require(:question).permit( :body)
   end
 
   def parametrs
