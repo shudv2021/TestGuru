@@ -3,8 +3,8 @@
   <div>
     <ul>
       <li>Год: <%= current_time %></li>
-      <li><a href="https://github.com/shudv2021/TestGuru" target="_blank"> Исходники проекта.</a></li>
-<li>Выполнено в рамках учебного задания школы <a href="https://thinknetica.com/" target="_blank"></a>Thinknetica</li>
+      <li><%= link_to "Исходник проекта", git_url, target: "_blank", class: "btn btn-large btn-primary" %></li>
+<li> <%= link_to "Выполнено в рамках учебного задания школы Thinknetica", school_url, target: "_blank", class: "btn btn-large btn-primary" %></li>
     </ul>
   </div>
 </footer>

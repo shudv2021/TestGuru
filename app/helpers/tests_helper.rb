@@ -3,4 +3,8 @@ module TestsHelper
   def test_level(test)
     TEST_LEVEL[test.level] || :hero
   end
+
+  def test_size(test)
+    test.questions.size
+  end
 end

@@ -3,12 +3,11 @@ class QuestionsController < ApplicationController
   # /tests/1/questions?data[level]=2&data[lang]=ru
   # /tests/1/questions?tegs[]=ruby&tegs[]=computer since
   #/tests/1/questions?dats[][level]=1&dats[][level]=2
-  before_action :find_question, only: %i[show destroy]
-  before_action :find_test, only: %i[index new create]
-  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  before_action :find_question, only: %i[show destroy edit update]
+  before_action :find_test, only: %i[new create]
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def show
-    @question=Question.find(params[:id])
   end
 
   def new
@@ -20,16 +19,14 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to(@question.test)
     else
-      render html: "<p>Saving failed</p>".html_safe
+      render @test
     end
   end
 
   def edit
-    @question = Question.find(params[:id])
   end
 
   def update
-    @question = Question.find(params[:id])
     if @question.update(question_params)
       redirect_to @question.test
     else
@@ -38,21 +35,16 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-
     if @question.delete
       redirect_to(@question.test)
     else
-      render html: "<p>Can't del question</p>".html_safe
+      rescue_with_question_not_found
     end
   end
 
   private
   def find_question
     @question = Question.find(params[:id])
-  end
-
-  def question_params
-    params.require(:question).permit( :body)
   end
 
   def parametrs
@@ -72,4 +64,5 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:body)
   end
+
 end
