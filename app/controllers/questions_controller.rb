@@ -5,11 +5,7 @@ class QuestionsController < ApplicationController
   #/tests/1/questions?dats[][level]=1&dats[][level]=2
   before_action :find_question, only: %i[show destroy edit update]
   before_action :find_test, only: %i[new create]
-<<<<<<< HEAD
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-=======
-  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
->>>>>>> 041df97f71ab480274d45d1ef06a0c909e52e3e9
 
   def show
   end
@@ -34,7 +30,7 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to @question.test
     else
-      render :new
+      render :edit
     end
   end
 
@@ -42,23 +38,13 @@ class QuestionsController < ApplicationController
     if @question.delete
       redirect_to(@question.test)
     else
-<<<<<<< HEAD
-      rescue_with_question_not_found
-=======
-      render @test
->>>>>>> 041df97f71ab480274d45d1ef06a0c909e52e3e9
+      render html: "Delete error".html_safe
     end
   end
 
   private
   def find_question
     @question = Question.find(params[:id])
-  end
-
-  def parametrs
-    #byebug
-    result = ["Class: #{params.class}", "Parametrs: #{params.inspect}"]
-    render plain: result.join("\n")
   end
 
   def find_test
