@@ -1,0 +1,8 @@
+<h1>Test <%= @test_passage.test.title %> completed!</h1>
+  <h2>Your result:
+  <span class=<%= @test_passage.seccessfull? ? "seccessfull":"faild" %>>
+    <%= number_to_percentage(@test_passage.result?, precision: 0) %>
+
+  </span>
+  </h2>
+<%= link_to 'All tests', tests_path %>

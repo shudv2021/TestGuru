@@ -3,8 +3,8 @@ class Test < ApplicationRecord
   has_many :questions
   belongs_to :category
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
-  has_many :tests_users
-  has_many :users, through: :tests_users
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   validates :title, presence: true
   validates :title, uniqueness: { scope: :level }
