@@ -1,3 +1,9 @@
- <h1> This is Question for <%=question_header(@question) %> Test</h1>
+ <h1> <%=@question.test.title %> Test</h1>
  <p><%= @question.body %></p>
+ <h2>Answer</h2>
+ <%= link_to 'New answer', new_question_answer_path(@question)%>
+
+<ol> <%= render @question.answers %></ol>
+
+
  <td> <%= link_to 'To test', test_path(@question.test) %></td>

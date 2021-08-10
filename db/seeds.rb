@@ -29,10 +29,10 @@ tests = Test.create([
                     ])
 questions = Question.create([
                               { test_id: tests[0].id, body: 'For what Ruby is used usually' },
-                              { test_id: tests[2].id, body: 'For what HTML is used' },
-                              { test_id: tests[1].id, body: 'Haw chenge values in a & b each other' },
-                              { test_id: tests[3].id, body: 'For what CSS is used ' },
-                              { test_id: tests[4].id, body: 'What common between Ruby and Phyton' }
+                              { test_id: tests[0].id, body: 'For what HTML is used' },
+                              { test_id: tests[2].id, body: 'Haw chenge values in a & b each other' },
+                              { test_id: tests[2].id, body: 'For what CSS is used ' },
+                              { test_id: tests[0].id, body: 'What common between Ruby and Phyton' }
                             ])
 Answer.create([
                 { question_id: questions[0].id, body: 'For Backend production', correct: true },
@@ -43,6 +43,7 @@ Answer.create([
                 { question_id: questions[3].id, body: 'For drawing and decoration HTML pages', correct: true }
               ])
 
+=begin
 TestsUser.create([
                    { test_id: tests[0].id, user_id: users[0].id },
                    { test_id: tests[1].id, user_id: users[0].id },
@@ -52,3 +53,4 @@ TestsUser.create([
                    { test_id: tests[2].id, user_id: users[1].id },
                    { test_id: tests[3].id, user_id: users[2].id }
                  ])
+=end
