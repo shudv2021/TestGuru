@@ -26,6 +26,10 @@ class TestPassage < ApplicationRecord
     result? >= BORDER_OF_SECCESS
   end
 
+  def question_num
+    "вопрос номер: #{test.questions.index(self.current_question) + 1} из #{test.questions.count} "
+  end
+
   private
   def before_validation_set_the_first_question
     self.current_question = test.questions.first if test.present?
