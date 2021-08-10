@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    @answer = @question.answers.new(answer_params)
     if @answer.save
       redirect_to @answer, notice: "Answer was seccessfuly create"
     else
@@ -19,8 +19,8 @@ class AnswersController < ApplicationController
   end
 
   def update
-    if @answer.save
-      redirect_to @answer, notice: "Answer was seccessfuly create"
+    if @answer.update(answer_params)
+      redirect_to @answer, notice: "Answer was seccessfuly chenged"
     else
       render :edit
     end
@@ -29,6 +29,8 @@ class AnswersController < ApplicationController
   def destroy
     if @anwer.destroy
       redirect_to @answer.question
+    else
+      render html: "Delete error".html_safe
     end
   end
 

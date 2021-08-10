@@ -1,15 +1,16 @@
 class TestPassage < ApplicationRecord
+  BORDER_OF_SECCESS = 85.freeze
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
   before_validation :before_validation_set_the_first_question, on: :create
-
+  before_update :next_question
 
   def accept!(answers_ids)
     if correct_answer?(answers_ids)
       self.correct_questions +=1
     end
-    self.current_question = next_question
     save!
   end
 
@@ -22,7 +23,7 @@ class TestPassage < ApplicationRecord
   end
 
   def seccessfull?
-    result? >= 85
+    result? >= BORDER_OF_SECCESS
   end
 
   private
@@ -37,8 +38,7 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
-
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
   def correct_answers
