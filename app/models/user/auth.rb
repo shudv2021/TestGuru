@@ -13,7 +13,7 @@ module User::Auth
     validates :password, confirmation: true
   end
 
-  def authentificate(password_string)
+  def authenticate(password_string)
     digest(password_string) == self.password_digest ? self : false
   end
 
