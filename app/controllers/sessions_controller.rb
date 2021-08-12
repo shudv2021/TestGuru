@@ -11,9 +11,9 @@ class SessionsController < ApplicationController
       # по выполнению этого блока сервер отправит зашифорованную информацию
       # информация сохранится в cookie и будет действительа пока не закроется
       # браузер по умолчанию
-      redirect_to(test_path)
+      redirect_to test_path
     else
-      render new
+      render :new
     end
   end
 end
