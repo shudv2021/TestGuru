@@ -6,13 +6,15 @@ class ApplicationController < ActionController::Base
 
   private
   def authenticate_user!
+    cookies[:path] = "/#{params[:controller]}/#{params[:action]}"
     unless current_user
-      redirect_to login_path, alert: "Uncorrect information in form. Try another one."
+      redirect_to login_path, alert: "Email or password are uncorrect. Try another one."
     end
   end
+
   def exit_from_session
-    @current_user = nil
     redirect_to login_path
+    session[:user_id] = nil
   end
 
   def current_user
@@ -22,7 +24,5 @@ class ApplicationController < ActionController::Base
   def logged_in?
     @current_user.present?
   end
-
-
 
 end
