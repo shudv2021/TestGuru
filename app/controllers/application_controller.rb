@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   private
   def authenticate_user!
-    cookies[:path] = "/#{params[:controller]}/#{params[:action]}"
+    cookies[:path_from_request] = request.fullpath
     unless current_user
       redirect_to login_path, alert: "Email or password are uncorrect. Try another one."
     end

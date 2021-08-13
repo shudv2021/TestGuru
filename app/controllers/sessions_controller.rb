@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       # по выполнению этого блока сервер отправит зашифорованную информацию
       # информация сохранится в cookie и будет действительа пока не закроется
       # браузер по умолчанию
-      redirect_to "#{cookies[:path]}"
+      redirect_to cookies[:path_from_request] || root_path
     else
       flash.now[:alert] = ' Uncorrect email or password'
       render :new
