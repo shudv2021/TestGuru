@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
   # /tests/1/questions?data[level]=2&data[lang]=ru
   # /tests/1/questions?tegs[]=ruby&tegs[]=computer since
   #/tests/1/questions?dats[][level]=1&dats[][level]=2
+  before_action :authenticate_user!
   before_action :find_question, only: %i[show destroy edit update]
   before_action :find_test, only: %i[new create]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found

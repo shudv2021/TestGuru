@@ -13,10 +13,10 @@ categories = Category.create([
                                { title: 'Data science' }
                              ])
 users = User.create([
-                      { name: 'Masha', password: '12345', status: 'test object', email: 'mail@yandex' },
-                      { name: 'Glasha', password: '12345', status: 'test object', email: 'mail@yandex'  },
-                      { name: 'Pasha', password: '12345', status: 'test object', email: 'mail@yandex' },
-                      { name: 'Veniamin', password: 'qwerty', status: 'test maker', email: 'mail@yandex' }
+                      { name: 'Masha', password_digest: '12345', email: 'mail@yandex' },
+                      { name: 'Glasha', password_digest: '12345', email: 'Glasha@yandex'  },
+                      { name: 'Pasha', password_digest: '12345', email: 'Pasha@yandex' },
+                      { name: 'Veniamin', password_digest: 'qwerty', email: 'Veniamin@yandex' }
                     ])
 tests = Test.create([
                       { title: 'Ruby', level: 1, category_id: categories[1].id, user_id: users[3].id },
@@ -42,15 +42,3 @@ Answer.create([
                 { question_id: questions[4].id, body: 'Both lenguage with dynamic typing jf data', correct: true },
                 { question_id: questions[3].id, body: 'For drawing and decoration HTML pages', correct: true }
               ])
-
-=begin
-TestsUser.create([
-                   { test_id: tests[0].id, user_id: users[0].id },
-                   { test_id: tests[1].id, user_id: users[0].id },
-                   { test_id: tests[3].id, user_id: users[0].id },
-                   { test_id: tests[0].id, user_id: users[1].id },
-                   { test_id: tests[1].id, user_id: users[1].id },
-                   { test_id: tests[2].id, user_id: users[1].id },
-                   { test_id: tests[3].id, user_id: users[2].id }
-                 ])
-=end

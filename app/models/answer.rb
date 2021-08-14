@@ -3,7 +3,6 @@ class Answer < ApplicationRecord
 
   validate :too_many_answers, on: :create
   validates :body, presence: true
-
   scope :correct, -> { where(correct: true) }
 
   private

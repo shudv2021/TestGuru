@@ -1,3 +1,2 @@
-1.Психологи - те кто обрабатывают информацию, загружают новые тесты.
-2.Сами тесты - сюда входят как сами тесты так и шаблоны по их обработке
-3.Подопытные - Здесь должна содержаться информация о тех кто тесты проходит
+This is training project TestGuru.
+This file will contain information about methods and logic schems by project.
