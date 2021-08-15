@@ -18,9 +18,8 @@ class SessionsController < ApplicationController
     end
   end
 
-  def exit
+  def destroy
     flash[:alert] = "You Exit TestGuru"
-    exit_from_session
   end
 
 end
