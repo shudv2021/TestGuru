@@ -1,7 +1,7 @@
 class TestsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :find_test, only: %i[ edit update destroy show ]
+  before_action :find_test, only: %i[ edit update destroy show start]
   def index
     @tests = Test.all
   end
