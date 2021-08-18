@@ -9,15 +9,14 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def new
-    @test = Test.new
+    @test = current_user.authors_test.new
   end
 
    def edit
    end
 
   def create
-    @test = Test.new(test_params)
-    @test.user_id = current_user.id
+    @test = current_user.authors_test.new(test_params)
     if @test.save
       redirect_to admin_tests_path
     else
@@ -38,11 +37,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to tests_path
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   private
   def test_params
     params.require(:test).permit(:title, :level, :category_id)
@@ -50,4 +44,6 @@ class Admin::TestsController < Admin::BaseController
   def find_test
     @test = Test.find(params[:id])
   end
+
+
 end
