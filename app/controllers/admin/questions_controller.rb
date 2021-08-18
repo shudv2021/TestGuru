@@ -18,9 +18,9 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to(@question.test)
+      redirect_to [:admin, @question]
     else
-      render @test
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question.test
+      redirect_to [:admin, @question]
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     if @question.delete
-      redirect_to(@question.test)
+      redirect_to [:admin, @question]
     else
       render html: "Delete error".html_safe
     end

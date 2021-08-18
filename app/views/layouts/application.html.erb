@@ -11,12 +11,15 @@
   </head>
 
   <body>
-  <% if logged_in? %>
-   <p class="nav user">
-     Welcome <b><%=current_user.email %></b><br>
-     <%= link_to 'Exit', exit_path, method: :exit, data: {confirm: 'Are you sure?'}%>
-   </p>
-  <% end %>
+
+  <% if user_signed_in? %>
+<p class = "nav user">
+  Welcome, <b><%= current_user.email %></b> Guru |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</p>
+<% end %>
+
+  <%= render "shared/flash" %>
     <%= yield %>
   </body>
   <%= render "layouts/footer" %>
