@@ -31,3 +31,27 @@
 
 en:
   hello: "Hello world"
+  tests:
+    index:
+      header: "Tricky Tests"
+
+  admin:
+    tests:
+      index:
+        header: "Tricky Tests"
+        new_test: "New test"
+        title: "Title"
+        level: "Level"
+        quest_in_test: "Question in test"
+        actions: "Actions"
+      test:
+        show: "Show"
+        edit: "Edit"
+        delete:
+    nav:
+      exit: "Exit"
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"

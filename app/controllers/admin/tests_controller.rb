@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :find_test, only: %i[ edit update destroy show start]
+  before_action :find_test, only: %i[edit update destroy show start]
   def index
     @tests = Test.all
   end

@@ -1,2 +1,31 @@
 ru:
   local: "Я нахожусь в Краснодаре"
+  tests:
+    index:
+      header: "Доступные тесты"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты"
+        new_test: "Новый тест"
+        title: "Наименование"
+        level: "Уровень"
+        quest_in_test: "Вопросов в тесте"
+        actions: "Возможные действия"
+      test:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+    nav:
+      exit: "Выход"
+    answer:
+      show: "Показать"
+      edit: "Редактировать"
+      delete: "Уалить"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
