@@ -28,7 +28,7 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def destroy
-    if @anwer.destroy
+    if @answer.destroy
       redirect_to [:admin, @answer.question]
     else
       render html: "Delete error".html_safe
@@ -43,7 +43,7 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def answer_params
-    params.require (:answer).permit(:body, :correct)
+    params.require(:answer).permit(:body, :correct)
   end
 
   def find_question

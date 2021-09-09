@@ -34,7 +34,10 @@ en:
   tests:
     index:
       header: "Tricky Tests"
-
+      title: "Test name"
+      level: "Level"
+      question_in_test: "Questions in test"
+      start: "Start"
   admin:
     tests:
       index:
@@ -48,10 +51,61 @@ en:
         show: "Show"
         edit: "Edit"
         delete:
+      new:
+        header: "Create test"
+        all_tests: "All tests"
+      edit:
+        header: "Edit test"
+        all_tests: "All tests"
+      show:
+        header: "Test %{title} level %{level}"
+        num: "Num"
+        question: "Question"
+        action: "Action"
+        edit: "Edit"
+        delete: "Delet"
+        to_tests: "To test"
+        edit_test: "Edit test"
+        add_quest: "Add question"
+    questions:
+      form:
+        header: "Work with questions by test %{title}"
+        to_test: "To test"
+      show:
+        answer: "Answers"
+        add_answer: "Add answer"
+        to_test: "Return to test"
+    answers:
+      answer:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+      show:
+        answer_body: "Answer on current question"
+        question_body: "Current question"
+        to_question: "Back to question"
     nav:
+      main_header: "TestGuru Admin Panel"
       exit: "Exit"
   helpers:
     submit:
       test:
         create: "Create test"
         update: "Update test"
+        start: "Start"
+      question:
+        create: "Create question"
+        update: "Update question"
+      answer:
+        create: "Create answer"
+        update: "Update answer"
+    label:
+      test:
+        level: "Level"
+        title: "Title"
+        category_id: "Category"
+      question:
+        body: "Input question"
+      answer:
+        body: "Answen for question"
+        correct: "The answer is correct"

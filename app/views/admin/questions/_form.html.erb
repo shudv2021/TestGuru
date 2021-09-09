@@ -1,4 +1,4 @@
-<h1><%= question_header(@question) %></h1>
+<h1><%= t(".header", title: @question.test.title) %></h1>
 
 <%= form_with model: [:admin, @test, @question], local: true do |form| %>
   <p>
@@ -7,4 +7,5 @@
   </p><br>
 
   <p> <%= form.submit %></p>
+  <td> <%= link_to t(".to_test"), admin_test_path(@question.test) %></td>
 <% end %>

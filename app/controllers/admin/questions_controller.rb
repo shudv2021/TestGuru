@@ -32,8 +32,8 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def destroy
-    if @question.delete
-      redirect_to [:admin, @question]
+    if @question.destroy
+      redirect_to [:admin, @question.test]
     else
       render html: "Delete error".html_safe
     end
