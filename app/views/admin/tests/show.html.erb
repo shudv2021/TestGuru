@@ -1,19 +1,19 @@
-<h1>The test by <%= @test.title %> level: <%=@test.level %>.</h1>
+<h1><%= t(".header", title: @test.title, level: @test.level)%>.</h1>
 <table>
 <tr>
-  <th>Num</th>
-  <th>Question</th>
-  <th colspan="2"> Action </th>
+  <th><%= t(".num") %></th>
+  <th><%= t(".question") %></th>
+  <th colspan="2"> <%= t(".acton") %> </th>
 </tr>
   <%@test.questions.each do |question| %>
   <tr>
   <td><%=question.id %></td>
   <td><%=question.body %></td>
-  <td> <%= link_to 'edit', edit_admin_question_path(question) %></td>
-    <td> <%= link_to 'delete', admin_question_path(question), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+  <td> <%= link_to t(".edit") , edit_admin_question_path(question) %></td>
+    <td> <%= link_to t(".delete"), admin_question_path(question), method: :delete, data: {confirm: 'Are you sure?'} %></td>
   </tr>
   <% end %>
 </table>
-<%= link_to 'All tests', admin_tests_path %> |
-<%= link_to 'Edit test', edit_admin_test_path(@test) %>|
-<%= link_to 'Add question', new_admin_test_question_path(@test) %>
+<%= link_to t(".to_tests"), admin_tests_path %> |
+<%= link_to t(".edit_test"), edit_admin_test_path(@test) %>|
+<%= link_to t(".add_quest"), new_admin_test_question_path(@test) %>

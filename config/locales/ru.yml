@@ -1,2 +1,94 @@
 ru:
   local: "Я нахожусь в Краснодаре"
+  tests:
+    index:
+      header: "Доступные тесты"
+      title: "Название тесте"
+      level: "Уровень"
+      question_in_test: "Вопросов в тесте"
+      start: "Начать прохождение"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты"
+        new_test: "Новый тест"
+        title: "Наименование"
+        level: "Уровень"
+        quest_in_test: "Вопросов в тесте"
+        actions: "Возможные действия"
+      test:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+      new:
+        header: "Создать тест"
+        all_tests: "К списку тестов"
+      edit:
+        header: "Редактировать тест"
+        all_tests: "К списку тестов"
+      show:
+        header: "Тест %{title} уровень %{level}"
+        num: "Номер"
+        question: "Вопрос"
+        action: "Действие"
+        edit: "Редактирвать"
+        delete: "Удалить"
+        to_tests: "Вернуться к тестам"
+        edit_test: "Редактировать тест"
+        add_quest: "Добавить вопрос"
+    questions:
+      form:
+        header: "Работа с вопросами теста %{title}"
+        to_test: "Вернуться к тесту"
+      show:
+        answer: "Ответы"
+        add_answer: "Добавить ответ"
+        to_test: "Вернуться к тесту"
+    answers:
+      answer:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Уалить"
+      form:
+        to_question: "Вернуться к вопросу"
+      new:
+        header: "Создать новый ответ"
+        to_question: "К вопросу"
+      show:
+        answer_body: "Ответ на текущий вопрос"
+        question_body: "Текущий вопрос"
+
+    nav:
+      main_header: "ТестГуру Панель Администратора"
+      exit: "Выход"
+    answer:
+      show: "Показать"
+      edit: "Редактировать"
+      delete: "Уалить"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+        start: "Начать"
+
+      question:
+        create: "Создать вопрос"
+        update: "Изменить вопрос"
+      answer:
+        create: "Создать ответ"
+        update: "Изменить ответ"
+    label:
+      test:
+        level: "Уровень"
+        title: "Название"
+        category_id: "Категория"
+      question:
+        body: "Введите вопрос"
+      answer:
+          body: "Ответ на вопрос"
+          correct: "Ответ верен"
+
+

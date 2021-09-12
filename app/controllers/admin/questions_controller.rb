@@ -1,8 +1,4 @@
-class QuestionsController < ApplicationController
-  #/tests/1/questions?level=2&lang=ru
-  # /tests/1/questions?data[level]=2&data[lang]=ru
-  # /tests/1/questions?tegs[]=ruby&tegs[]=computer since
-  #/tests/1/questions?dats[][level]=1&dats[][level]=2
+class Admin::QuestionsController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_question, only: %i[show destroy edit update]
   before_action :find_test, only: %i[new create]
@@ -36,8 +32,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    if @question.delete
-      redirect_to [:admin, @question]
+    if @question.destroy
+      redirect_to [:admin, @question.test]
     else
       render html: "Delete error".html_safe
     end

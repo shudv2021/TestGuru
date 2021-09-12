@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_question, only: %i[new create]
   before_action :set_answer, only: %i[show edit update destroy]
@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    if @anwer.destroy
+    if @answer.destroy
       redirect_to [:admin, @answer.question]
     else
       render html: "Delete error".html_safe
@@ -43,7 +43,7 @@ class AnswersController < ApplicationController
   end
 
   def answer_params
-    params.require (:answer).permit(:body, :correct)
+    params.require(:answer).permit(:body, :correct)
   end
 
   def find_question

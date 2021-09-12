@@ -1,0 +1,6 @@
+<h1><%= t(".question_body") %></h1>
+<p><%=@answer.question.body %></p>
+<h2> <%= t(".answer_body") %> </h2>
+<p> <%= "#{@answer.body} - is #{@answer.correct.to_s.upcase}" %></p>
+<%=link_to t(".to_question"), admin_question_path(@answer.question) %>
+

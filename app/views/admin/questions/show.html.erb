@@ -1,0 +1,8 @@
+ <h1> <%=@question.test.title %> Test</h1>
+ <p><%= @question.body %></p>
+ <h2><%= t(".answer") %></h2>
+ <ol> <%= render @question.answers %></ol>
+ <%= link_to  t(".add_answer"), new_admin_question_answer_path(@question)%>
+ <%=link_to t(".to_test"), admin_test_path(@question.test) %>
+
+

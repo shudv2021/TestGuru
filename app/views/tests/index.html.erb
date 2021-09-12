@@ -1,11 +1,10 @@
-<h1> Tricky Tests</h1>
-
+<h1> <%=I18n.t('tests.index.header') %></h1>
 <table>
   <tr>
-    <th>Title </th>
-    <th>Level</th>
-    <th>Questions in Test</th>
-    <th > Actions </th>
+    <th> <%= t(".title") %> </th>
+    <th><%= t(".level") %></th>
+    <th><%= t(".question_in_test") %></th>
+    <th > <%= t(".start") %> </th>
   </tr>
 <%= render @tests %>
 </table>
