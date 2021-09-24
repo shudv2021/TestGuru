@@ -1,7 +1,19 @@
 class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show result update]
+  before_action :set_test_passage, only: %i[show result update gist]
+
+  def gist
+  gist = GistQuestionService.new(@test_passage.current_question)
+  gist_url = gist.call.html_url
+  flash_options = unless gist.empty?
+                    #Здесь будет сохранение в sqlite3 gists
+                    { notice: 'Success' }
+                  else
+                    {notice: 'Faled'}
+                  end
+  redirect_to @test_passage, flassh_options
+  end
 
   def show
 
