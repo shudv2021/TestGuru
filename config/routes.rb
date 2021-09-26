@@ -11,12 +11,14 @@ Rails.application.routes.draw do
     end
   end
   #Gest test_passages/101/result
-  resources :test_passages, only: [:show, :update] do
+  resources :test_passages, only: %i[show update] do
     member do
       get :result
       post :gist
     end
   end
+
+  resources :gists, only: %i[index show]
 
   namespace :admin do
     resources :tests do

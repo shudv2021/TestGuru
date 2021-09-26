@@ -6,13 +6,15 @@ class TestPassagesController < ApplicationController
   def gist
   gist = GistQuestionService.new(@test_passage.current_question)
   gist_url = gist.call.html_url
-  flash_options = unless gist.empty?
+  flash_options = if gist.seccess?
+                    byebug
+                    Gist.new(user_id: @test_passage.user.id, quesion_id: @test_passage.current_question.id, gist_url: gist_html)
                     #Здесь будет сохранение в sqlite3 gists
                     { notice: 'Success' }
                   else
                     {notice: 'Faled'}
                   end
-  redirect_to @test_passage, flassh_options
+  redirect_to @test_passage, flash_options
   end
 
   def show
