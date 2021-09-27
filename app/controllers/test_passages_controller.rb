@@ -4,11 +4,11 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show result update gist]
 
   def gist
-  gist = GistQuestionService.new(@test_passage.current_question).call
-  byebug
+  gist = GistQuestionService.new(@test_passage.current_question)
+  gist.call
   flash_options = if gist.seccess?
-                    current_user.gists.create(quesion_id: @test_passage.current_question.id, gits_url: gist.html_url)
-                    { notice: 'Success', url: gist.html_url }
+                    current_user.gists.create(question_id: @test_passage.current_question.id, gist_url: gist.html_url)
+                    { notice: 'Success' }
                   else
                     {notice: 'Faled'}
                   end

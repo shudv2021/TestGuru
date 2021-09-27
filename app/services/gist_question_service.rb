@@ -11,7 +11,11 @@ class GistQuestionService
   end
 
   def seccess?
-    @clinet.last_response.status == 201
+    @client.last_response.status == 201
+  end
+
+  def html_url
+    @client.last_response.data[:html_url]
   end
 
   private

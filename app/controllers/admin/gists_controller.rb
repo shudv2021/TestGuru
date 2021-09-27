@@ -1,4 +1,4 @@
-class Admin::GistsControlle < Admin::BaseController
+class Admin::GistsController < Admin::BaseController
   before_action :authenticate_user!
 
   def index
@@ -6,7 +6,7 @@ class Admin::GistsControlle < Admin::BaseController
   end
 
   def show
-    @gist = Gist.find(params[:id])
+
   end
 
 end
