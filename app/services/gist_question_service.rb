@@ -7,9 +7,7 @@ class GistQuestionService
   end
 
   def call
-    byebug
     @client.create_gist(gist_params)
-    byebug
   end
 
   def seccess?
