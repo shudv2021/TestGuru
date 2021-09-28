@@ -6,7 +6,7 @@ class TestPassagesController < ApplicationController
   def gist
   gist = GistQuestionService.new(@test_passage.current_question)
   gist.call
-  flash_options = if gist.seccess?
+  flash_options = if gist.success?
                     current_user.gists.create(question_id: @test_passage.current_question.id, gist_url: gist.html_url)
                     { notice: 'Success' }
                   else
