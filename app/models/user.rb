@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :authors_test, class_name: 'Test'
   has_many :test_passages
   has_many :tests, through: :test_passages
+  has_many :gists
 
   validates :email, presence: true, uniqueness: true, format: {with: URI::MailTo::EMAIL_REGEXP}
   #validates :name, presence: true

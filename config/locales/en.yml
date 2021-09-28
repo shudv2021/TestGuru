@@ -38,6 +38,7 @@ en:
       level: "Level"
       question_in_test: "Questions in test"
       start: "Start"
+
   admin:
     tests:
       index:
@@ -47,6 +48,7 @@ en:
         level: "Level"
         quest_in_test: "Question in test"
         actions: "Actions"
+        show_gists: "Show all gists"
       test:
         show: "Show"
         edit: "Edit"
@@ -67,6 +69,12 @@ en:
         to_tests: "To test"
         edit_test: "Edit test"
         add_quest: "Add question"
+    gists:
+      index:
+        header: "Difficult questions"
+        email: "Creator email"
+        question_body: "Question"
+        url: "Link to GitHub"
     questions:
       form:
         header: "Work with questions by test %{title}"

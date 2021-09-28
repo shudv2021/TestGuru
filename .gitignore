@@ -6,6 +6,7 @@
 
 #Ignore all connected with RubiMine
 .idea
+.env
 # Ignore bundler config.
 /.bundle
 

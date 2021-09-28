@@ -17,6 +17,7 @@ ru:
         level: "Уровень"
         quest_in_test: "Вопросов в тесте"
         actions: "Возможные действия"
+        show_gists: "Показать все пометки"
       test:
         show: "Показать"
         edit: "Редактировать"
@@ -37,6 +38,12 @@ ru:
         to_tests: "Вернуться к тестам"
         edit_test: "Редактировать тест"
         add_quest: "Добавить вопрос"
+    gists:
+      index:
+        header: "Все непонятые вопросы"
+        email: "Почта созателя"
+        question_body: "Вопрос"
+        url: "Ссылка на GitHub"
     questions:
       form:
         header: "Работа с вопросами теста %{title}"
@@ -90,5 +97,3 @@ ru:
       answer:
           body: "Ответ на вопрос"
           correct: "Ответ верен"
-
-

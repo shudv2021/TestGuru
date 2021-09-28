@@ -1,10 +1,13 @@
 <h1><%= t(".header", title: @test.title, level: @test.level)%>.</h1>
-<table>
-<tr>
-  <th><%= t(".num") %></th>
-  <th><%= t(".question") %></th>
-  <th colspan="2"> <%= t(".acton") %> </th>
-</tr>
+<table class="table table-bordered">
+<thead>
+  <tr>
+  <td><%= t(".num") %></td>
+  <td><%= t(".question") %></td>
+  <td colspan="2"> <%= t(".acton") %> </td>
+  </tr>
+</thead>
+<tbody>
   <%@test.questions.each do |question| %>
   <tr>
   <td><%=question.id %></td>
@@ -12,6 +15,7 @@
   <td> <%= link_to t(".edit") , edit_admin_question_path(question) %></td>
     <td> <%= link_to t(".delete"), admin_question_path(question), method: :delete, data: {confirm: 'Are you sure?'} %></td>
   </tr>
+</tbody>
   <% end %>
 </table>
 <%= link_to t(".to_tests"), admin_tests_path %> |

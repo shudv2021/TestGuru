@@ -30,7 +30,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Authentificate gem
   gem 'devise', '~>4.0'
-
+#HTTP client
+  gem 'faraday'
+#GitHub client
+  gem 'octokit', '~>4.0'
+#Password
+  gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

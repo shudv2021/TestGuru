@@ -19,5 +19,9 @@ module TestGuru
     config.i18n.default_locale = :en
     #config.time_zone = 'Moscow'
     # config.eager_load_paths << Rails.root.join("extras")
+
+    #Это метод подключения к автозагрузке сущьностей не из каталога app.
+    # Сущьности каталога app подгружаются автоматически
+    # config.autoload_paths << "#{Rails.root}/lib/clients"
   end
 end
