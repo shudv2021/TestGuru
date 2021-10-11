@@ -7,14 +7,21 @@ function highlightPass() {
     let passwordConfirmation = document.getElementById('user_password_confirmation')
     let password = document.getElementById('user_password')
 
-    function defineStile(color) {
-        password.style.backgroundColor = color
-        passwordConfirmation.style.backgroundColor = color
+    if (password.value === passwordConfirmation.value) { defineStile('green', password, passwordConfirmation)}
+    else {defineStile('red', password, passwordConfirmation)}
+
+    if (password.value === '' || passwordConfirmation.value === '') {
+        clearStile(password, passwordConfirmation)
     }
 
-    if (password.value === passwordConfirmation.value) { defineStile('green')}
-    else {defineStile('red')}
-    /*если поле проверки не содержит значений значит функция события не выполняется - те третье уловие задания
-    выполняется по умолчанию
-     */
+}
+
+function defineStile(color, password, passwordConfirmation) {
+    password.style.backgroundColor = color
+    passwordConfirmation.style.backgroundColor = color
+}
+
+function clearStile(password, passwordConfirmation) {
+    password.style.backgroundColor = ''
+    passwordConfirmation.style.backgroundColor = ''
 }
