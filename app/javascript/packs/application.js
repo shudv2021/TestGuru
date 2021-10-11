@@ -5,6 +5,7 @@ import "channels"
 //=require jquery3
 //=require popper
 import "./utilites/sorting"
+import "./utilites/password_highlighting"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
