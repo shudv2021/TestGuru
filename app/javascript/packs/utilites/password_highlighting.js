@@ -7,12 +7,12 @@ function highlightPass() {
     let passwordConfirmation = document.getElementById('user_password_confirmation')
     let password = document.getElementById('user_password')
 
-    if (password.value === passwordConfirmation.value) { defineStile('green', password, passwordConfirmation)}
-    else {defineStile('red', password, passwordConfirmation)}
-
     if (password.value === '' || passwordConfirmation.value === '') {
         clearStile(password, passwordConfirmation)
+        return 
     }
+    if (password.value === passwordConfirmation.value) { defineStile('green', password, passwordConfirmation)}
+    else {defineStile('red', password, passwordConfirmation)}
 
 }
 
