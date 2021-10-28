@@ -21,7 +21,7 @@ module TestGuru
     # config.eager_load_paths << Rails.root.join("extras")
 
     #Это метод подключения к автозагрузке сущьностей не из каталога app.
-    # Сущьности каталога app подгружаются автоматически
+    # Сущности каталога app подгружаются автоматически
     # config.autoload_paths << "#{Rails.root}/lib/clients"
   end
 end

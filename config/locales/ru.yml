@@ -18,6 +18,8 @@ ru:
         quest_in_test: "Вопросов в тесте"
         actions: "Возможные действия"
         show_gists: "Показать все пометки"
+      form_inline:
+        change_name: "Изменить"
       test:
         show: "Показать"
         edit: "Редактировать"
