@@ -27,7 +27,7 @@ class TestPassage < ApplicationRecord
   end
 
   def question_num
-    "вопрос номер: #{test.questions.index(self.current_question) + 1} из #{test.questions.count} "
+    return (test.questions.index(self.current_question) + 1), (test.questions.count)
   end
 
   private
