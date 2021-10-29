@@ -1,5 +1,13 @@
 <h1> Passing the <%= @test_passage.test.title %> Test </h1>
-<h2> <%= @test_passage.question_num %> </h2>
+<h2> <%= @test_passage.question_num[0] %> </h2>
+<div class="progress test-progress">
+  <%= content_tag :div, "Вопрос номер #{@test_passage.question_num[0]} из #{@test_passage.question_num[1]}",
+                  class: 'progress-bar bg-success',
+                  id: 'test-progress',
+                  data: { question_number: @test_passage.question_num[0] ,
+                          total_question: @test_passage.question_num[1]  } %>
+</div>
+
 <p> <%= @test_passage.current_question.body %> </p>
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>

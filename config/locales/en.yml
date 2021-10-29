@@ -49,6 +49,8 @@ en:
         quest_in_test: "Question in test"
         actions: "Actions"
         show_gists: "Show all gists"
+      form_inline:
+        change_name: "Change"
       test:
         show: "Show"
         edit: "Edit"

@@ -1,0 +1,10 @@
+o<%= form_with model: [:admin, test],
+               url: update_inline_admin_test_path(test),
+               locale: true, class: 'form-inline hide',
+               data: {test_id: test.id}  do |form| %>
+  <p>
+    <%= form.text_field :title, class: 'form-control mr-2' %>
+    <%= form.submit t('.change_name'), id: :test_title, class: 'btn btn-primary' %>
+  </p>
+
+<%end%>

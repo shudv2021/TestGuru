@@ -6,6 +6,9 @@ import "channels"
 //=require popper
 import "./utilites/sorting"
 import "./utilites/password_highlighting"
+import './utilites/form_inline'
+import './utilites/progress_bar'
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
