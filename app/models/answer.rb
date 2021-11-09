@@ -5,8 +5,7 @@ class Answer < ApplicationRecord
   scope :correct, -> { where(correct: true) }
 
   private
-
   def too_many_answers
-    errors.add(:question_id, 'To many answers for this question') if question.answers.size >= 4
+    errors.add(:question_id, 'To many answers for this question') if question.answers.size > 4
   end
 end
