@@ -42,4 +42,3 @@ Answer.create([
                 { question_id: questions[4].id, body: 'Both lenguage with dynamic typing jf data', correct: true },
                 { question_id: questions[3].id, body: 'For drawing and decoration HTML pages', correct: true }
               ])
-byebug
