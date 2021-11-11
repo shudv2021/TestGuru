@@ -1,3 +1,4 @@
+asdadfsdfgdg
 document.addEventListener('turbolinks:load', function (){
     let control = document.getElementById('user_password_confirmation')
     if (control) {control.addEventListener('input', highlightPass)}
