@@ -10,7 +10,7 @@ class TestPassagesController < ApplicationController
                     current_user.gists.create(question_id: @test_passage.current_question.id, gist_url: gist.html_url)
                     { notice: 'Success' }
                   else
-                    {notice: 'Faled'}
+                    { notice: 'Faled' }
                   end
   redirect_to @test_passage, flash_options
   end
