@@ -1,4 +1,8 @@
 <h1> <%=I18n.t('tests.index.header') %></h1>
+
+<span class=<%= self.current_user.admin? ? '' : 'hide'%>>
+  <%= link_to 'To admin panel', admin_tests_path %>
+</span>
 <table>
   <tr>
     <th> <%= t(".title") %> </th>
