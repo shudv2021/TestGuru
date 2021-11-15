@@ -42,9 +42,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def destroy
-    byebug
-    @test.questions.destroy
-    @test.test_passages.destroy
     @test.destroy
     redirect_to admin_tests_path
   end
