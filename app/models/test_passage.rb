@@ -27,7 +27,11 @@ class TestPassage < ApplicationRecord
   end
 
   def question_num
-    return (test.questions.index(self.current_question) + 1), (test.questions.count)
+    if test.questions.index(self.current_question) == nil
+      return 0, (test.questions.count)
+      else
+      return (test.questions.index(self.current_question) + 1), (test.questions.count)
+      end
   end
 
   private
