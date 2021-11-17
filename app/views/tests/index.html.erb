@@ -3,7 +3,7 @@
 <span class=<%= self.current_user.admin? ? '' : 'hide'%>>
   <%= link_to 'To Admin Panel', admin_tests_path %>
 </span>
-<table>
+<table class="table table-sm">
   <tr>
     <th> <%= t(".title") %> </th>
     <th><%= t(".level") %></th>
