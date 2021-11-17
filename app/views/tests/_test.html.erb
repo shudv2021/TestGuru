@@ -1,6 +1,8 @@
+<% if test.t_r? %>
 <tr>
 <td><%= test.title %></td>
 <td><%= test_level(test) %></td>
   <td> <%= test_size(test) %></td>
   <td><%=button_to t("helpers.submit.test.start"), start_test_path(test) %></td>
 </tr>
+<% end %>

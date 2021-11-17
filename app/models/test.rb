@@ -19,4 +19,16 @@ class Test < ApplicationRecord
   def self.by_category_sort
     by_category.order(id: :desc).pluck(:title)
   end
+
+  def t_r?
+    if self.questions.empty?
+      return false
+    else
+      self.questions.each  do |question|
+        return false if question.answers.empty?
+      end
+    end
+  true
+  end
+
 end
