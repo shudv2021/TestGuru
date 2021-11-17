@@ -27,22 +27,17 @@ class TestPassage < ApplicationRecord
   end
 
   def question_num
-    if test.questions.index(self.current_question) == nil
-      return 0, (test.questions.count)
-      else
       return (test.questions.index(self.current_question) + 1), (test.questions.count)
-      end
   end
 
   private
+
   def before_validation_set_the_first_question
     self.current_question = test.questions.first if test.present?
   end
 
   def correct_answer?(answer_ids)
-    correct_answers_count = correct_answers.count
-    #Экономими время многократные запросы к базе
-    (correct_answers_count == correct_answers.where(id: answer_ids).count) && (correct_answers_count == answer_ids.count)
+    true
   end
 
   def next_question
