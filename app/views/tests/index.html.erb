@@ -1,5 +1,4 @@
 <h1> <%=I18n.t('tests.index.header') %></h1>
-
 <span class=<%= self.current_user.admin? ? '' : 'hide'%>>
   <%= link_to 'To Admin Panel', admin_tests_path %>
 </span>
@@ -12,3 +11,4 @@
   </tr>
 <%= render @tests %>
 </table>
+<%= button_to 'Send report', feedback_index_path, class: "btn btn-primary", :method => :get  %>

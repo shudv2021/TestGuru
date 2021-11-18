@@ -1,0 +1,15 @@
+
+<h1>Feedback form</h1>
+<div>
+    <%= form_with url: feedback_index_path, local: true do |f| %>
+
+      <div>
+        <%= f.label :report, "Input message" %>
+        <%= f.text_area :report, id: :report, size: "60x10"%>
+      </div>
+
+      <div>
+        <%= f.submit 'Send report' %>
+      </div>
+    <% end %>
+</div>
