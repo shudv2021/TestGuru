@@ -1,9 +1,9 @@
 class Test < ApplicationRecord
 
-  has_many :questions
+  has_many :questions, dependent: :destroy
   belongs_to :category
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
-  has_many :test_passages
+  has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
 
   validates :title, presence: true
@@ -19,4 +19,16 @@ class Test < ApplicationRecord
   def self.by_category_sort
     by_category.order(id: :desc).pluck(:title)
   end
+
+  def t_r?
+    if self.questions.empty?
+      return false
+    else
+      self.questions.each  do |question|
+        return false if question.answers.empty?
+      end
+    end
+  true
+  end
+
 end

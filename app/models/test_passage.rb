@@ -5,7 +5,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
   before_validation :before_validation_set_the_first_question, on: :create
-  before_update :next_question
+  before_validation :next_question, on: :update
 
   def accept!(answers_ids)
     if correct_answer?(answers_ids)
@@ -27,18 +27,21 @@ class TestPassage < ApplicationRecord
   end
 
   def question_num
-    return (test.questions.index(self.current_question) + 1), (test.questions.count)
+      return (test.questions.index(self.current_question) + 1), (test.questions.count)
   end
 
   private
+
   def before_validation_set_the_first_question
     self.current_question = test.questions.first if test.present?
   end
 
   def correct_answer?(answer_ids)
-    correct_answers_count = correct_answers.count
-    #Экономими время многократные запросы к базе
-    (correct_answers_count == correct_answers.where(id: answer_ids).count) && (correct_answers_count == answer_ids.count)
+    if answer_ids.present?
+      correct_answers_count = correct_answers.count
+      #Экономими время многократные запросы к базе
+      (correct_answers_count == correct_answers.where(id: answer_ids).count) && (correct_answers_count == answer_ids.count)
+    end
   end
 
   def next_question

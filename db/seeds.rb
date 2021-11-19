@@ -13,10 +13,10 @@ categories = Category.create([
                                { title: 'Data science' }
                              ])
 users = User.create([
-                      { password: '123456', encrypted_password: '123456', email: 'mail@yandex.ru' },
-                      { password: '123456', encrypted_password: '123456', email: 'Glasha@yandex.ru'  },
-                      { password: '123456', encrypted_password: '123456', email: 'Pasha@yandex.ru' },
-                      { password: '123456', encrypted_password: 'qwerty', email: 'Veniamin@yandex.ru' }
+                      { password: '123456', email: 'mail@yandex.ru' },
+                      { password: '123456', email: 'Glasha@yandex.ru'  },
+                      { password: '123456', email: 'Pasha@yandex.ru' },
+                      { password: '123456', first_name: 'Dmitry', last_name: 'Dmitry', email: 'shudv@yandex.ru', type: 'Admin' }
                     ])
 tests = Test.create([
                       { title: 'Ruby', level: 1, category_id: categories[1].id, user_id: users[3].id },

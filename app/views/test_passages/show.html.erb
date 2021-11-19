@@ -1,5 +1,4 @@
 <h1> Passing the <%= @test_passage.test.title %> Test </h1>
-<h2> <%= @test_passage.question_num[0] %> </h2>
 <div class="progress test-progress">
   <%= content_tag :div, "Вопрос номер #{@test_passage.question_num[0]} из #{@test_passage.question_num[1]}",
                   class: 'progress-bar bg-success',

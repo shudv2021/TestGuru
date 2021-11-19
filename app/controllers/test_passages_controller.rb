@@ -10,7 +10,7 @@ class TestPassagesController < ApplicationController
                     current_user.gists.create(question_id: @test_passage.current_question.id, gist_url: gist.html_url)
                     { notice: 'Success' }
                   else
-                    {notice: 'Faled'}
+                    { notice: 'Faled' }
                   end
   redirect_to @test_passage, flash_options
   end
@@ -26,7 +26,6 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.complited?
-      TestsMailer.complited_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
