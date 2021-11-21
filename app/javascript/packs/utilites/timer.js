@@ -2,15 +2,14 @@
 document.addEventListener('turbolinks:load', function(){
     let timerPanel = document.querySelector('.timer')
 
-    const remainingTime = timerPanel.dataset.remainingTime;
+    let remainingTime = timerPanel.dataset.remainingTime;
     startTimer(remainingTime);
 })
 
 function startTimer(timerPanel, remainingTime) {
-    if (rmainingTime > 0) {
+    if (remainingTime > 0) {
         timerPanel.textContent = remainingTime;
         remainingTime--;
         setTimeout(startTimer, 1000, remainingTime)
-    }
-    else {concole.log('завершить тест')}
+    } else {timerPanel.textContent = 'Завершить тест'}
 }
