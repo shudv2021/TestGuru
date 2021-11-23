@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_103337) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.integer "time_limit", default: 1, null: false
+    t.integer "time_limit", default: 0, null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
