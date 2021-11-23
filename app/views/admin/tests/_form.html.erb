@@ -17,7 +17,7 @@
 
   <div>
     <%= form.label :time_limit%>
-    <%= form.number_field :time_limit, (5..90), id: :time_limit%>
+    <%= form.number_field :time_limit, in: 0..120.0, step: 5%>
   </div><br>
 
   <p> <%= form.submit %></p>
