@@ -19,6 +19,7 @@ class TestPassage < ApplicationRecord
   end
 
   def result?
+    current_question = nil
     ((self.correct_questions.to_f / test.questions.count) * 100).round
   end
 
@@ -34,6 +35,9 @@ class TestPassage < ApplicationRecord
     (self.test.time_limit * 60 - (Time.current - self.created_at).to_i)
   end
 
+  def remaining_time?
+    remaining_time <= 0
+  end
 
   private
 
