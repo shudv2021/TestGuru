@@ -19,7 +19,6 @@ class TestPassage < ApplicationRecord
   end
 
   def result?
-    current_question = nil
     ((self.correct_questions.to_f / test.questions.count) * 100).round
   end
 
