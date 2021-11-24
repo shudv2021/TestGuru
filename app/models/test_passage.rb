@@ -30,6 +30,14 @@ class TestPassage < ApplicationRecord
       return (test.questions.index(self.current_question) + 1), (test.questions.count)
   end
 
+  def remaining_time
+    (self.test.time_limit * 60 - (Time.current - self.created_at).to_i)
+  end
+
+  def remaining_time?
+    remaining_time <= 0
+  end
+
   private
 
   def before_validation_set_the_first_question

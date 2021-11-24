@@ -8,6 +8,8 @@ import "./utilites/sorting"
 import "./utilites/password_highlighting"
 import './utilites/form_inline'
 import './utilites/progress_bar'
+import './utilites/timer'
+
 
 Rails.start()
 Turbolinks.start()
