@@ -1,0 +1,9 @@
+<tr>
+  <td ><%= badge.name %></td>
+  <td ><%= badge.rule %></td>
+  <td ><%= image_tag(badge.image_url, size: 100) %></td>
+  <td ><%= link_to t('.badge.show'), admin_badge_path(badge) %></td>
+  <td ><%= link_to t('.badge.edit'), edit_admin_badge_path(badge) %></td>
+  <td ><%= link_to t('.badge.delete'), admin_badge_path(badge), method: :delete, data: { confirm: "Delete badge?"} %>
+  </td>
+</tr>
