@@ -6,6 +6,7 @@ class Test < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
 
+
   validates :title, presence: true
   validates :title, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than: -1 }

@@ -1,0 +1,7 @@
+<p><%= @badge.name %></p>
+<p><%= image_tag @badge.image_url, size: 100 %></p>
+<p><%= @badge.rule %></p>
+<br>
+
+<%= link_to t('.to_badges'), admin_badges_path %>
+
