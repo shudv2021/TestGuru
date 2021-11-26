@@ -25,8 +25,9 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.complited? || @test_passage.remaining_time?
-      @test_passage.result = @test_passage.seccessfull?
-      BadgeService.new(@test_passage) if @test_passage.seccessfull?
+      @test_passage.seccess = @test_passage.seccessfull?
+      badge = BadgeService.new(@test_passage) if @test_passage.seccessfull?
+      badge.call unless badge.nil?
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show

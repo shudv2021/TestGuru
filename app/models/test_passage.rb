@@ -18,12 +18,12 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def result?
+  def result
     ((self.correct_questions.to_f / test.questions.count) * 100).round
   end
 
   def seccessfull?
-    result? >= BORDER_OF_SECCESS
+    result >= BORDER_OF_SECCESS
   end
 
   def question_num
