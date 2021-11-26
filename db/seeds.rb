@@ -43,3 +43,9 @@ Answer.create([
                 { question_id: questions[3].id, body: 'For drawing and decoration HTML pages', correct: true }
               ])
 
+Badge.create([
+               {name: 'From first attempt', rule: 'success_from_first_attempt',  image_url: 'image_url'},
+             {name: "Category master", rule: 'resolved_all_from_category',  image_url: 'image_url'},
+             {name: 'Level master', rule: 'resolved_all_in_level',  image_url: 'image_url'}
+          ])
+

@@ -1,0 +1,17 @@
+
+<h1><%= t('.header') %>:</h1>
+
+<%= render 'shared/errors', resource: @badge %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th><%= t('.name') %></th>
+    <th><%= t('.rule') %></th>
+    <th><%= t('.image_url') %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render current_user.badges %>
+  </tbody>
+</table>
