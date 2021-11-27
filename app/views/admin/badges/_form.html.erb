@@ -14,8 +14,8 @@
     </div>
 
     <div>
-      <%= form.label :image_url %><br>
-      <%= form.text_field :image_url, id: :bage_image%>
+      <%= form.label :image_url, class: 'form-label' %>
+      <%= form.select :image_url, Octicons::OCTICON_SYMBOLS.keys, prompt: true %>
     </div>
 
     <div>

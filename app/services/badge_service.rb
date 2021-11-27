@@ -26,8 +26,8 @@ class BadgeService
   def resolved_all_in_level
 
     tests_in_list = Test.where(level: @test.level).pluck(:id)
-    tests_seccess_the_same_level = @user.test_passages.where(seccess: true, test: tests_in_list).pluck(:test_id).uniq
-   tests_in_list.count == tests_seccess_the_same_level.count
+    tests_success_the_same_level = @user.test_passages.where(success: true, test: tests_in_list).pluck(:test_id).uniq
+   tests_in_list.count == tests_success_the_same_level.count
   end
 
 end

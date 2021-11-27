@@ -13,7 +13,7 @@ class Admin::AnswersController < Admin::BaseController
   def create
     @answer = @question.answers.new(answer_params)
     if @answer.save
-      redirect_to [:admin, @answer], notice: "Answer was seccessfuly create"
+      redirect_to [:admin, @answer], notice: "Answer was successfuly create"
     else
       render :new
     end
@@ -21,7 +21,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def update
     if @answer.update(answer_params)
-      redirect_to [:admin, @answer], notice: "Answer was seccessfuly chenged"
+      redirect_to [:admin, @answer], notice: "Answer was successfuly chenged"
     else
       render :edit
     end

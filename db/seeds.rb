@@ -60,8 +60,8 @@ Answer.create([
               ])
 
 Badge.create([
-               {name: 'From first attempt', rule: 'success_from_first_attempt', image_url: 'image_url'},
-             {name: "Category master", rule: 'resolved_all_from_category',  image_url: 'image_url'},
-             {name: 'Level master', rule: 'resolved_all_in_level',  image_url: 'image_url'}
+               {name: 'From first attempt', rule: 'success_from_first_attempt', image_url: 'diff-added'},
+             {name: "Category master", rule: 'resolved_all_from_category',  image_url: 'diff-added'},
+             {name: 'Level master', rule: 'resolved_all_in_level',  image_url: 'diff-added'}
           ])
 
