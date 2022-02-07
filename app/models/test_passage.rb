@@ -1,5 +1,5 @@
 class TestPassage < ApplicationRecord
-  BORDER_OF_SECCESS = 85.freeze
+  BORDER_OF_SUCCESS = 85.freeze
 
   belongs_to :user
   belongs_to :test
@@ -18,12 +18,12 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def result?
+  def result
     ((self.correct_questions.to_f / test.questions.count) * 100).round
   end
 
-  def seccessfull?
-    result? >= BORDER_OF_SECCESS
+  def successfull?
+    result >= BORDER_OF_SUCCESS
   end
 
   def question_num
